@@ -1,4 +1,4 @@
-export enum EventMode {
+export enum Mode {
 	SoloShowdown = 'soloShowdown',
 	DuoShowdown = 'duoShowdown',
 	Heist = 'heist',
@@ -27,31 +27,3 @@ export enum EventMode {
 	LastStand = 'lastStand',
 	Unknown = 'unknown'
 }
-
-export interface BattleEvent {
-	mode: EventMode;
-	id: number;
-	map: string;
-}
-
-export interface Battle {
-	mode: string;
-	type: string;
-	result: 'victory' | 'defeat';
-	duration: number;
-	teams?: any[][];
-	players?: any[];
-}
-
-export interface BattleLog {
-	battle: Battle;
-	battleTime: string;
-	event: BattleEvent;
-}
-
-export type BattleList = {
-	items: BattleLog[];
-	paging: {
-		cursors: Record<string, any>;
-	};
-};
