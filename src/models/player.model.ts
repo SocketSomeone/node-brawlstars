@@ -63,6 +63,10 @@ export class Player extends BaseModel {
 		this.brawlers = raw.brawlers.map(brawler => new Brawler(client, brawler));
 	}
 
+	public getClub(): Observable<Club> {
+		return this.client.getClub(this.club?.tag);
+	}
+
 	public getBattles(): Observable<Battle[]> {
 		return this.client.getPlayerBattlelog(this.tag).pipe(map(res => res.items));
 	}

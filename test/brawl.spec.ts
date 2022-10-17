@@ -30,15 +30,4 @@ describe('BrawlStars API Client', () => {
 			done();
 		});
 	});
-
-	it('should return info', done => {
-		client.getPlayerBattlelog(playerTag).subscribe({
-			next: data => {
-				data;
-			},
-			complete: () => {
-				done();
-			}
-		});
-	});
 });

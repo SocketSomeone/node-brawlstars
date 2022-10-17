@@ -1,7 +1,7 @@
 import { from, iif, map, Observable, of, shareReplay, switchMap, tap, throwError, timer } from 'rxjs';
 import { Axios } from 'axios';
 import { TagUtils } from './utils';
-import { Battle, Club, Player, ScheduledEvent } from './models';
+import { Battle, Brawler, Club, Player, ScheduledEvent } from './models';
 import { Pagination } from './interfaces';
 import { ExceptionByCode } from './exceptions';
 
@@ -65,6 +65,16 @@ export class BrawlClient extends Axios {
 		return this.fetch<Pagination.Response<Battle.Raw>>(`/players/${TagUtils.Clean(tag)}/battlelog`).pipe(
 			map(raw => ({ items: raw.items.map(raw => Battle.FromRaw(this, raw)), cursor: raw.cursor }))
 		);
+	}
+
+	public getBrawlers(): Observable<Pagination.Response<Brawler>> {
+		return this.fetch<Pagination.Response<Brawler.Raw>>('/brawlers').pipe(
+			map(raw => ({ items: raw.items.map(raw => Brawler.FromRaw(this, raw)), cursor: raw.cursor }))
+		);
+	}
+
+	public getBrawler(id: string): Observable<Brawler> {
+		return this.fetch<Brawler.Raw>(`/brawlers/${id}`).pipe(map(raw => Brawler.FromRaw(this, raw)));
 	}
 
 	public getEventRotation(): Observable<ScheduledEvent> {
