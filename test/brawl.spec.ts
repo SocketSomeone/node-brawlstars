@@ -26,4 +26,11 @@ describe('BrawlStars API Client', () => {
 			done();
 		});
 	});
+
+	it('should return battlelogs', done => {
+		client.getPlayerBattlelog(playerTag).subscribe(logs => {
+			expect(logs).toBeDefined();
+			done();
+		});
+	});
 });

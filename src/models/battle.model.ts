@@ -22,15 +22,18 @@ export class Battle extends BaseModel {
 
 	public readonly duration?: number;
 
-	public readonly teams?: Player[][];
+	public readonly starPlayer?: Player;
 
-	public readonly players?: Player[];
+	public readonly teams?: Battle.Player[][];
+
+	public readonly players?: Battle.Player[];
 
 	public constructor(client: BrawlClient, raw: Battle.Raw) {
 		super(client);
 
 		this.event = raw.event;
 		this.battleTime = raw.battleTime;
+		Object.assign(this, raw.battle);
 	}
 }
 
@@ -55,5 +58,16 @@ export namespace Battle {
 	export enum Result {
 		Victory = 'victory',
 		Defeat = 'defeat'
+	}
+
+	export interface Player {
+		tag: string;
+		name: string;
+		brawler: {
+			id: number;
+			name: string;
+			power: number;
+			trophies: number;
+		};
 	}
 }
