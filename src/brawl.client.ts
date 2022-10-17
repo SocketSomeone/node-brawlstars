@@ -28,9 +28,7 @@ export class BrawlClient extends Axios {
 					const cache = response.headers['cache-control'];
 					const maxAge = parseInt(cache.match(/max-age=(\d+)/)?.[1]) ?? 0;
 
-					if (maxAge > 0) {
-						timer(maxAge * 1000).subscribe(() => this.cache.delete(url));
-					}
+					timer(maxAge * 1000).subscribe(() => this.cache.delete(url));
 				}),
 				switchMap(response =>
 					iif(
