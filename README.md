@@ -29,4 +29,3 @@ const client = new BrawlClient('TOKEN')
 ## License
 
 [MIT](https://github.com/SocketSomeone/necord/blob/master/LICENSE) © [Alexey Filippov](https://github.com/SocketSomeone)
-# node-brawlstars
