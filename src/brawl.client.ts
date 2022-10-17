@@ -21,9 +21,9 @@ export class BrawlClient extends Axios {
 
 	private readonly errorFactory = (status: number, message: string) => new ExceptionByCode[status](message);
 
-	private fetch<T>(url: string): Observable<T> {
+	private fetch<T>(url: string, query: Record<string, any> = {}): Observable<T> {
 		if (!this.cache.has(url)) {
-			const fetch$ = from(this.get(url)).pipe(
+			const fetch$ = from(this.get(url, { params: query })).pipe(
 				tap(response => {
 					const cache = response.headers['cache-control'];
 					const maxAge = parseInt(cache.match(/max-age=(\d+)/)?.[1]) ?? 0;
@@ -51,8 +51,8 @@ export class BrawlClient extends Axios {
 		return this.fetch<Club.Raw>(`/clubs/${TagUtils.Clean(tag)}`).pipe(map(raw => Club.FromRaw(this, raw)));
 	}
 
-	public getClubMembers(tag: string): Observable<Pagination.Response<Club.Member>> {
-		return this.fetch<Pagination.Response<Club.Member.Raw>>(`/clubs/${TagUtils.Clean(tag)}/members`).pipe(
+	public getClubMembers(tag: string, options?: Pagination.Query): Observable<Pagination.Response<Club.Member>> {
+		return this.fetch<Pagination.Response<Club.Member.Raw>>(`/clubs/${TagUtils.Clean(tag)}/members`, options).pipe(
 			map(raw => ({ items: raw.items.map(raw => Club.Member.FromRaw(raw)), cursor: raw.cursor }))
 		);
 	}
@@ -61,14 +61,14 @@ export class BrawlClient extends Axios {
 		return this.fetch<Player.Raw>(`/players/${TagUtils.Clean(tag)}`).pipe(map(raw => Player.FromRaw(this, raw)));
 	}
 
-	public getPlayerBattlelog(tag: string): Observable<Pagination.Response<Battle>> {
-		return this.fetch<Pagination.Response<Battle.Raw>>(`/players/${TagUtils.Clean(tag)}/battlelog`).pipe(
+	public getPlayerBattlelog(tag: string, options?: Pagination.Query): Observable<Pagination.Response<Battle>> {
+		return this.fetch<Pagination.Response<Battle.Raw>>(`/players/${TagUtils.Clean(tag)}/battlelog`, options).pipe(
 			map(raw => ({ items: raw.items.map(raw => Battle.FromRaw(this, raw)), cursor: raw.cursor }))
 		);
 	}
 
-	public getBrawlers(): Observable<Pagination.Response<Brawler>> {
-		return this.fetch<Pagination.Response<Brawler.Raw>>('/brawlers').pipe(
+	public getBrawlers(options?: Pagination.Query): Observable<Pagination.Response<Brawler>> {
+		return this.fetch<Pagination.Response<Brawler.Raw>>('/brawlers', options).pipe(
 			map(raw => ({ items: raw.items.map(raw => Brawler.FromRaw(this, raw)), cursor: raw.cursor }))
 		);
 	}

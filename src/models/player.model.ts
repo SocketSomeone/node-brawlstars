@@ -58,7 +58,7 @@ export class Player extends BaseModel {
 		this.bestRoboRumbleTime = raw.bestRoboRumbleTime;
 		this.bestTimeAsBigBrawler = raw.bestTimeAsBigBrawler;
 
-		if (raw.club) this.club = new Club(client, raw.club);
+		if ('tag' in raw.club) this.club = new Club(client, raw.club);
 
 		this.brawlers = raw.brawlers.map(brawler => new Brawler(client, brawler));
 	}
