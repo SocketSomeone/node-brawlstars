@@ -5,13 +5,13 @@ export class ScheduledEvent {
 	public startTime: string;
 
 	public get startTimeDate(): Date {
-		return DateUtils.fromString(this.startTime);
+		return DateUtils.FromString(this.startTime);
 	}
 
 	public endTime: string;
 
 	public get endTimeDate(): Date {
-		return DateUtils.fromString(this.startTime);
+		return DateUtils.FromString(this.startTime);
 	}
 
 	public slotId: number;

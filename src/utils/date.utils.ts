@@ -1,5 +1,5 @@
 export namespace DateUtils {
-	export function fromString(date: string): Date {
+	export function FromString(date: string): Date {
 		const year = date.substring(0, 4);
 		const month = date.substring(4, 6);
 		const day = date.substring(6, 8);

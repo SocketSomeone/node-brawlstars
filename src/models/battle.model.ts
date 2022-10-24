@@ -11,7 +11,7 @@ export class Battle extends BaseModel {
 	public readonly battleTime: string;
 
 	public get battleDate(): Date {
-		return DateUtils.fromString(this.battleTime);
+		return DateUtils.FromString(this.battleTime);
 	}
 
 	public readonly mode: Mode;
@@ -52,7 +52,7 @@ export namespace Battle {
 
 	export enum Type {
 		Ranked = 'ranked',
-		Custom = 'custom'
+		Friendly = 'friendly'
 	}
 
 	export enum Result {
