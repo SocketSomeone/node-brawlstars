@@ -13,9 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Start Centrifugo
-        run: docker run -d -p 8000:8000 centrifugo/centrifugo:latest centrifugo --api_insecure
-
       - name: Install Node v16
         uses: actions/setup-node@v3.5.1
         with:
@@ -28,8 +25,6 @@ jobs:
 
       - name: Run Tests
         run: yarn run test
-        env:
-          CENTRIFUGO_HOST: "http://localhost:8000/api"
 
       - name: Run ESlint
         run: yarn lint
