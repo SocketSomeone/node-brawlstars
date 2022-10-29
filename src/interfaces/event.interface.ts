@@ -1,7 +1,7 @@
-import { Mode } from '../enums';
+import { BrawlMode } from '../enums';
 
 export interface Event {
 	id: number;
-	mode: Mode;
+	mode: BrawlMode;
 	map: string;
 }

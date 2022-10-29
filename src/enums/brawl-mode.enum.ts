@@ -1,4 +1,4 @@
-export enum Mode {
+export enum BrawlMode {
 	SoloShowdown = 'soloShowdown',
 	DuoShowdown = 'duoShowdown',
 	Heist = 'heist',

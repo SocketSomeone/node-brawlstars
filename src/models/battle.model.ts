@@ -2,7 +2,7 @@ import { BaseModel } from './base.model';
 import { BrawlClient } from '../brawl.client';
 import { Event } from '../interfaces';
 import { Player } from './player.model';
-import { Mode } from '../enums';
+import { BrawlMode } from '../enums';
 import { DateUtils } from '../utils';
 
 export class Battle extends BaseModel {
@@ -14,7 +14,7 @@ export class Battle extends BaseModel {
 		return DateUtils.FromString(this.battleTime);
 	}
 
-	public readonly mode: Mode;
+	public readonly mode: BrawlMode;
 
 	public readonly type: Battle.Type;
 
