@@ -1,6 +1,5 @@
 import { Icon } from '../interfaces';
 import { BaseModel } from './base.model';
-import { map, Observable } from 'rxjs';
 import { BrawlClient } from '../brawl.client';
 
 export class Club extends BaseModel {
@@ -33,8 +32,8 @@ export class Club extends BaseModel {
 		this.members = raw.members.map(member => Club.Member.FromRaw(member));
 	}
 
-	public getMembers(): Observable<Club.Member[]> {
-		return this.client.getClubMembers(this.tag).pipe(map(res => res.items));
+	public getMembers(): Promise<Club.Member[]> {
+		return this.client.getClubMembers(this.tag).then(res => res.items);
 	}
 }
 

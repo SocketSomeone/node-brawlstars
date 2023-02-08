@@ -3,7 +3,6 @@ import { Club } from './club.model';
 import { BaseModel } from './base.model';
 import { Brawler } from './brawler.model';
 import { BrawlClient } from '../brawl.client';
-import { map, Observable } from 'rxjs';
 import { Battle } from './battle.model';
 
 export class Player extends BaseModel {
@@ -63,12 +62,12 @@ export class Player extends BaseModel {
 		this.brawlers = raw.brawlers.map(brawler => new Brawler(client, brawler));
 	}
 
-	public getClub(): Observable<Club> {
+	public getClub(): Promise<Club> {
 		return this.client.getClub(this.club?.tag);
 	}
 
-	public getBattles(): Observable<Battle[]> {
-		return this.client.getPlayerBattlelog(this.tag).pipe(map(res => res.items));
+	public getBattles(): Promise<Battle[]> {
+		return this.client.getPlayerBattlelog(this.tag).then(res => res.items);
 	}
 }
 
