@@ -1,4 +1,5 @@
 import { BrawlClient } from '../src/brawl.client';
+import { TagUtils } from '../src';
 
 describe('BrawlStars API Client', () => {
 	const clubTag = '#2GUU9908V',
@@ -6,31 +7,28 @@ describe('BrawlStars API Client', () => {
 
 	const client = new BrawlClient(process.env.TOKEN);
 
-	it('should return club', done => {
-		client.getClub(clubTag).subscribe(club => {
-			expect(club.tag).toBe(clubTag);
-			done();
-		});
+	it('should return club', async () => {
+		const club = await client.getClub(clubTag);
+
+		expect(club.tag).toBe(clubTag);
 	});
 
-	it('should return club members', done => {
-		client.getClubMembers(clubTag).subscribe(members => {
-			expect(members).toBeDefined();
-			done();
-		});
+	it('should return club members', async () => {
+		const members = await client.getClubMembers(clubTag);
+
+		expect(members).toBeDefined();
 	});
 
-	it('should return player', done => {
-		client.getPlayer(playerTag).subscribe(p => {
-			expect(p.tag).toBe(playerTag);
-			done();
-		});
+	it('should return player', async () => {
+		const player = await client.getPlayer(playerTag);
+
+		expect(player.tag).toBe(playerTag);
 	});
 
-	it('should return battlelogs', done => {
-		client.getPlayerBattlelog(playerTag).subscribe(logs => {
-			expect(logs).toBeDefined();
-			done();
-		});
+	it('should return battlelogs', async () => {
+		const logs = await client.getPlayerBattlelog('QYCGRJP09');
+
+		expect(logs).toBeDefined();
+		expect(Array.isArray(logs.items)).toBeTruthy();
 	});
 });
