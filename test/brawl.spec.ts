@@ -26,7 +26,7 @@ describe('BrawlStars API Client', () => {
 	});
 
 	it('should return battlelogs', async () => {
-		const logs = await client.getPlayerBattlelog('QYCGRJP09');
+		const logs = await client.getPlayerBattlelog(playerTag);
 
 		expect(logs).toBeDefined();
 		expect(Array.isArray(logs.items)).toBeTruthy();
