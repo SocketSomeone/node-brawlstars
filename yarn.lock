@@ -499,10 +499,10 @@
   resolved "https://registry.npmjs.org/@commitlint/config-angular-type-enum/-/config-angular-type-enum-17.4.0.tgz#5b6c882f192d1c7f4b0f42526637295434179d7f"
   integrity sha512-qbmfOfVqQHMKfc6CxS0A9b7+EFsOyEBoh4+i8Qa05uk8YhT/zY1CeIXK5V3wwemMDcHUegyL/ZnwCvWD7g8GxA==
 
-"@commitlint/config-angular@17.4.3":
-  version "17.4.3"
-  resolved "https://registry.yarnpkg.com/@commitlint/config-angular/-/config-angular-17.4.3.tgz#0b27607eba541ce51d6277ed06efcb56ec1666bb"
-  integrity sha512-3EdQsY5nX88zxYShtVw3SjsKp6ktnGW5kCzX/xRz3jD1f4s0xpqRtcLhPQM3L14pgVrbe7V1JlDTDX2PIe7Xeg==
+"@commitlint/config-angular@17.4.4":
+  version "17.4.4"
+  resolved "https://registry.yarnpkg.com/@commitlint/config-angular/-/config-angular-17.4.4.tgz#6d9f2fd55287fb20ac20168a7e51312989710228"
+  integrity sha512-ulCgBc1sDWwwW0HKGQDurcfWbWw1PZjwOFzeL2PZq3jcOgPfOzEHqE3dIjycB5DKlWNx4kUMcgwMWaX/zUtBNg==
   dependencies:
     "@commitlint/config-angular-type-enum" "^17.4.0"
 
@@ -1287,15 +1287,10 @@
   resolved "https://registry.npmjs.org/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
-"@types/node@*":
-  version "18.11.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.7.tgz#8ccef136f240770c1379d50100796a6952f01f94"
-  integrity sha512-LhFTglglr63mNXUSRYD8A+ZAIu5sFqNJ4Y2fPuY7UlrySJH87rRRlhtVmMHplmfk5WkoJGmDjE9oiTfyX94CpQ==
-
-"@types/node@18.13.0":
-  version "18.13.0"
-  resolved "https://registry.npmjs.org/@types/node/-/node-18.13.0.tgz#0400d1e6ce87e9d3032c19eb6c58205b0d3f7850"
-  integrity sha512-gC3TazRzGoOnoKAhUx+Q0t8S9Tzs74z7m0ipwGpSqQrleP14hKxP4/JUeEQcD3W1/aIpnWl8pHowI7WokuZpXg==
+"@types/node@*", "@types/node@18.14.0":
+  version "18.14.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.14.0.tgz#94c47b9217bbac49d4a67a967fdcdeed89ebb7d0"
+  integrity sha512-5EWrvLmglK+imbCJY0+INViFWUHg1AHel1sq4ZVSfdcNqGy9Edv3UB9IIzzg+xPaUcAgZYcfVs2fBcwDeZzU0A==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
