@@ -27,7 +27,7 @@
 		"axios": "1.4.0"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "17.6.3",
+		"@commitlint/cli": "17.6.5",
 		"@commitlint/config-angular": "17.6.3",
 		"@types/jest": "29.5.1",
 		"@types/node": "20.2.5",
