@@ -24,7 +24,7 @@
 		"https"
 	],
 	"dependencies": {
-		"axios": "1.7.4"
+		"axios": "1.7.5"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "19.4.0",
