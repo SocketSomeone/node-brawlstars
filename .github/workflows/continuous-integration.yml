@@ -3,18 +3,23 @@ name: Continuous Integration
 on:
   push:
     branches: [ master ]
+    paths-ignore: ['.github/**']
   pull_request:
+    paths-ignore: ['.github/**']
+
+permissions:
+  contents: read
 
 jobs:
   build:
+    name: Build and Test
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Install Node v22
-        uses: actions/setup-node@v4.4.0
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: yarn
